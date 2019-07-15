@@ -1,0 +1,36 @@
+
+.left-side {
+    width: 20%;
+}
+
+.flex {
+    justify-content: flex-start;
+}
+
+.right-side {
+    border-left: 1px solid #aaa;
+    height: 1000px;
+    width: 80%;
+    padding: 20px;
+}
+
+.item {
+    padding: 10px;
+    padding-left: 60px; 
+}
+
+.item1 {
+    padding: 10px;
+    font-size: 1.2em;
+    padding-left: 40px; 
+}
+
+.item:hover, .item1:hover {
+    background-color: #ddd;
+}
+
+.item-active {
+    box-sizing: border-box;
+    border-left: 2px solid red;
+    background-color: #ddd;
+}
