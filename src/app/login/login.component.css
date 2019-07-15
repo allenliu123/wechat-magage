@@ -1,0 +1,22 @@
+.bg {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.login-form {
+    width: 500px;
+    margin:0 auto;
+    position: relative;
+    top: 200px;
+    background: #ffffff99;
+    padding: 80px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
+}
