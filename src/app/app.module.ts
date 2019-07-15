@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,10 +12,6 @@ import { HomeComponent } from './admin/home/home.component';
 import { DeskComponent } from './admin/desk/desk.component';
 import { MenuComponent } from './admin/menu/menu.component';
 import { CommentComponent } from './admin/comment/comment.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
@@ -30,6 +30,7 @@ import { AdminComponent } from './admin/admin.component';
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],

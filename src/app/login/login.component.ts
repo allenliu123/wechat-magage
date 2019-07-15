@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      email: [null, [Validators.required]],
+      username: [null, [Validators.required]],
       password: [null, [Validators.required]],
       remember: [false]
     });
@@ -40,16 +40,17 @@ export class LoginComponent implements OnInit {
     }
     if(!error){
       var params = new HttpParams({fromObject: {
-        email: this.validateForm.get('email').value,
-        password: Md5.hashStr(this.validateForm.get('password').value).toString()
+        username: this.validateForm.get('username').value,
+        password: this.validateForm.get('password').value
+        // password: Md5.hashStr(this.validateForm.get('password').value).toString()
       }})
       try {
         this.http.post('/login', params, res => {
-          if(res.state === 'success'){
-            this.message.create('success', res.msg);
-            this.router.navigateByUrl("home")
-          } else if(res.state === 'fail'){
-            this.message.create('error', res.msg);
+          if(res.msg === 'success'){
+            this.message.create('success', "登陆成功");
+            this.router.navigateByUrl("admin")
+          } else if(res.msg === 'fail'){
+            this.message.create('error', res.data);
             this.validateForm.reset()
           } else {
             this.message.create('error', '网络异常');
