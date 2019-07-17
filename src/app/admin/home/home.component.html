@@ -1,1 +1,46 @@
-<p>home1 works!</p>
+
+
+                
+                
+
+
+<div class="gutter-example">
+
+                <div nz-row nzGutter="16" >
+
+                  <div nz-col class="gutter-row" nzSpan="6" *ngFor = "let data of datas">
+
+                    <div class="gutter-box" >
+                                <div  *ngIf = "data.tableStatus === '已入座'" class="table-font">
+                                                <img src="../../../assets/imgs/source/z0.png" alt="桌位" height="50px" width="80px" >
+                                                <br>
+                                                <p>{{data.tableName}}-{{data.tableStatus}}
+                                                  <br> 容纳人数:{{data.capacity}}
+                                                  <br><button nz-button [nzSize]="small" nzType="link">生成二维码</button>
+                                                </p>
+                                </div>
+                
+                                <div  *ngIf = "data.tableStatus === '未入座'" class="table-font">
+                                                <img src="../../../assets/imgs/source/z1.png" alt="桌位" height="50px" width="80px" >
+                                                <br>
+                                                <p>{{data.tableName}}-{{data.tableStatus}}
+                                                  <br> 容纳人数:{{data.capacity}}
+                                                  <br><button nz-button [nzSize]="small" nzType="link">生成二维码</button>
+                                                </p>
+                                </div>
+
+                                <div  *ngIf = "data.tableStatus === '已预约'" class="table-font">
+                                                <img src="../../../assets/imgs/source/z2.jpg" alt="桌位" height="50px" width="80px" >
+                                                <br>
+                                                <p>{{data.tableName}}-{{data.tableStatus}}
+                                                  <br> 容纳人数:{{data.capacity}}
+                                                  <br><button nz-button [nzSize]="small" nzType="link">生成二维码</button>
+                                                </p>
+                                                
+                                </div>
+                    </div>
+                  
+                  </div>
+
+                </div>
+</div>
