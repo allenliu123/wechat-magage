@@ -1,1 +1,60 @@
-<p>desk works!</p>
+<div class="topButtonDiv" >
+    <button class="topButton" nz-button nzType="primary" (click)="addshowModal()"><span><i nz-icon nzType="file-add" nzTheme="outline"></i>添加桌位</span></button>
+    <button class="topButton" nz-button nzType="primary" (click)="deleteshowModal()"><span><i nz-icon nzType="delete" nzTheme="outline"></i>删除桌位</span></button>
+</div>
+
+
+  
+
+<div class="gutter-example">
+
+    <div nz-row nzGutter="16" >
+
+      <div nz-col class="gutter-row" nzSpan="6" *ngFor = "let data of datas">
+
+        <div class="gutter-box" >
+                    <div class="table-font">
+                                    <img src="../../../assets/imgs/source/z1.png" alt="桌位" height="50px" width="80px" >
+                                    <br>
+                                    <p>{{data.tableName}}
+                                      <br> 容纳人数:{{data.capacity}}
+                                    </p>
+                    </div>
+    
+                    
+        </div>
+      
+      </div>
+
+    </div>
+
+</div>
+
+<!--
+    添加对话框
+-->
+
+<nz-modal
+    [(nzVisible)]="addisVisible"
+    nzTitle="添加桌位"
+    (nzOnCancel)="addhandleCancel()"
+    (nzOnOk)="addhandleOk()"
+    [nzOkLoading]="addisOkLoading"
+  >
+    <p>Modal Content</p>
+
+</nz-modal>
+
+<!--
+    删除对话框
+-->
+<nz-modal
+    [(nzVisible)]="deleteisVisible"
+    nzTitle="删除桌位"
+    (nzOnCancel)="deletehandleCancel()"
+    (nzOnOk)="deletehandleOk()"
+    [nzOkLoading]="deleteisOkLoading"
+  >
+    <p>Modal Content</p>
+
+</nz-modal>

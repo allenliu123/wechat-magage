@@ -13,6 +13,10 @@ import { DeskComponent } from './admin/desk/desk.component';
 import { MenuComponent } from './admin/menu/menu.component';
 import { CommentComponent } from './admin/comment/comment.component';
 import { AdminComponent } from './admin/admin.component';
+import { CatagoryComponent } from './admin/catagory/catagory.component';
+import { QRCodeModule } from 'angular2-qrcode';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { AdminComponent } from './admin/admin.component';
     DeskComponent,
     MenuComponent,
     CommentComponent,
-    AdminComponent
+    AdminComponent,
+    CatagoryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,8 @@ import { AdminComponent } from './admin/admin.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QRCodeModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

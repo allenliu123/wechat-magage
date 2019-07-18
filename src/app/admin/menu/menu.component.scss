@@ -1,0 +1,61 @@
+.DishItem{
+    width: 400px;
+    height: 220px;
+    
+}
+
+.imgItem{
+    width: 200px;
+    float: left;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.textItem{
+    width: 160px;
+    float: left;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.gutter-box {
+    padding: 5px 0;
+  }
+
+  .textColor{
+      color: indianred;
+  }
+
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  .addButton{
+      margin-left: 40px; 
+  }
+
+  .nz-input{
+      width: 340px;
+      float: left;
+  }
+
+  .nz-img-input{
+      float: left;
+      padding-top:20px;
+      margin-left: 20px;
+  }
+
+  .avatar {
+    width: 128px;
+    height: 128px;
+  }
+  .upload-icon {
+    font-size: 32px;
+    color: #999;
+  }
+  .ant-upload-text {
+    margin-top: 8px;
+    color: #666;
+  }
+  

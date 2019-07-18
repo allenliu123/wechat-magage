@@ -1,1 +1,83 @@
-<p>menu works!</p>
+
+
+<div class="addButton"><button nz-button [nzType]="'primary'" (click)="showModal()"><span><i nz-icon nzType="file-add" nzTheme="outline"></i>添加新菜品</span></button></div>
+
+<div class="gutter-example">
+
+        <div nz-row nzGutter="16">
+
+          <div nz-col class="gutter-row" nzSpan="8" *ngFor = "let dish of dishes" >
+
+            <div class="gutter-box">
+
+                    <div class="DishItem">
+                            <div class="imgItem">
+                                    <p><img src="../../../assets/imgs/source/timgNB7HLSUW.jpg" alt="菜品" width="180px" height="130px" ></p>
+                            </div>
+                            <div class="textItem">
+                                <p><font class="textColor">菜名：</font>{{dish.dishName}}</p><br>
+                                <p><font class="textColor">价格：</font>{{dish.dishPrice}}</p><br>
+                                <p><font class="textColor">分类：</font>{{dish.dishType}}</p><br>
+                                
+                            </div>
+                    </div>
+
+            </div>  
+
+          </div>
+
+        </div>
+
+</div>
+<!--
+        对话框
+-->
+<div>
+                <nz-modal [(nzVisible)]="isVisible" nzTitle="Modal Title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading" >
+                        <div>
+
+                                
+
+                                <div class="nz-input">
+                                        <p><font class = "textColor">菜品：</font> <input nz-input placeholder="" [(ngModel)]="newDish.dishName"  /></p>
+                                        <p><font class = "textColor">价格：</font> <input nz-input placeholder="" [(ngModel)]="newDish.dishPrice"  /></p>
+                                </div>
+                                        
+                                <div class="nz-img-input">
+                                                <nz-upload
+                                                class="avatar-uploader"
+                                                nzAction="https://jsonplaceholder.typicode.com/posts/"
+                                                nzName="avatar"
+                                                nzListType="picture-card"
+                                                [nzShowUploadList]="false"
+                                                [nzBeforeUpload]="beforeUpload"
+                                                (nzChange)="handleChange($event)"
+                                                        >
+                                                <ng-container *ngIf="!avatarUrl">
+                                                        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                                                        <div class="ant-upload-text">上传图片</div>
+                                                </ng-container>
+                                                <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+                                                </nz-upload>
+                                </div>
+
+                                <div class="nz-select">
+                                        <p>
+                                                <nz-select
+                                                        style="width: 340px;"
+                                                        nzShowSearch
+                                                        nzAllowClear
+                                                        nzPlaceHolder="请选择菜品"
+                                                        [(ngModel)]="selectType"
+                                                >
+                                                <p *ngFor="let dishType of dishTypes"><nz-option [nzLabel]="dishType.typeName" [nzValue]="dishType.typeName"></nz-option></p>
+                                                </nz-select>
+                                        </p>
+                                </div>
+                                        
+                        </div>
+                        
+                                
+                        
+                </nz-modal>
+</div>

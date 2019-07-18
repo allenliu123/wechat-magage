@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'menu', component: MenuComponent},
     {path: 'desk', component: DeskComponent},
-    {path: 'comment', component: CommentComponent}
+    {path: 'comment', component: CommentComponent},
   ] }
 ];
 
