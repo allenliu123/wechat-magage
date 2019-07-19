@@ -9,8 +9,8 @@
                         <p>订单状态：<font style="color: darkslategrey">{{order.orderStatus}}</font></p><br>
                         <p>总金额：{{order.totalPrice}}</p><br>
                         <nz-button-group style="text-align: center">
-                            <button nz-button nzType="primary" (click)="showConfirm(order)"><i nz-icon nzType="pay-circle" nzTheme="outline"></i>确认付款</button>
-                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order)"><i nz-icon nzType="warning" nzTheme="outline"></i><font style="color: red">取消订单</font> </button>
+                            <button nz-button nzType="primary" (click)="showConfirm(order.orderId)"><i nz-icon nzType="pay-circle" nzTheme="outline"></i>确认付款</button>
+                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order.orderId)"><i nz-icon nzType="warning" nzTheme="outline"></i><font style="color: red">取消订单</font> </button>
                         </nz-button-group>
                         
             

@@ -44,21 +44,20 @@
                                 </div>
                                         
                                 <div class="nz-img-input">
-                                                <nz-upload
-                                                class="avatar-uploader"
-                                                nzAction="https://jsonplaceholder.typicode.com/posts/"
-                                                nzName="avatar"
-                                                nzListType="picture-card"
-                                                [nzShowUploadList]="false"
-                                                [nzBeforeUpload]="beforeUpload"
-                                                (nzChange)="handleChange($event)"
-                                                        >
-                                                <ng-container *ngIf="!avatarUrl">
-                                                        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
-                                                        <div class="ant-upload-text">上传图片</div>
-                                                </ng-container>
-                                                <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
-                                                </nz-upload>
+                                        <nz-upload
+                                        class="avatar-uploader"
+                                        nzAction="https://jsonplaceholder.typicode.com/posts/"
+                                        nzName="avatar"
+                                        nzListType="picture-card"
+                                        [nzShowUploadList]="false"
+                                        (nzChange)="handleChange($event)"
+                                      >
+                                        <ng-container *ngIf="!avatarUrl">
+                                          <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                                          <div class="ant-upload-text">Upload</div>
+                                        </ng-container>
+                                        <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+                                      </nz-upload>
                                 </div>
 
                                 <div class="nz-select">
@@ -68,9 +67,9 @@
                                                         nzShowSearch
                                                         nzAllowClear
                                                         nzPlaceHolder="请选择菜品"
-                                                        [(ngModel)]="selectType"
+                                                        [(ngModel)]="newDish.typeId"
                                                 >
-                                                <p *ngFor="let dishType of dishTypes"><nz-option [nzLabel]="dishType.typeName" [nzValue]="dishType.typeName"></nz-option></p>
+                                                <nz-option *ngFor="let dishType of dishTypes" [nzLabel]="dishType.typeName" [nzValue]="dishType.typeId"></nz-option>
                                                 </nz-select>
                                         </p>
                                 </div>
