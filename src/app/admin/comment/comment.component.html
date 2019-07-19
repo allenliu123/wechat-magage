@@ -1,1 +1,77 @@
-<p>comment works!</p>
+<div>
+
+    <div *ngFor = "let order of orders" class="ordercard">
+
+        <div *ngIf = "order.orderStatus ==='待付款'">
+                <nz-card style="width: 300px;height: 280px" nzTitle="订单{{order.orderId}}" [nzExtra]="extraTemplate">
+
+                        <p>订单编号：{{order.orderId}}</p><br>
+                        <p>订单状态：<font style="color: darkslategrey">{{order.orderStatus}}</font></p><br>
+                        <p>总金额：{{order.totalPrice}}</p><br>
+                        <nz-button-group style="text-align: center">
+                            <button nz-button nzType="primary" (click)="showConfirm(order)"><i nz-icon nzType="pay-circle" nzTheme="outline"></i>确认付款</button>
+                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order)"><i nz-icon nzType="warning" nzTheme="outline"></i><font style="color: red">取消订单</font> </button>
+                        </nz-button-group>
+                        
+            
+                    </nz-card>
+        </div>
+
+        <div *ngIf = "order.orderStatus ==='待评价'">
+                <nz-card style="width:300px;height: 280px" nzTitle="订单{{order.orderId}}" [nzExtra]="extraTemplate">
+
+                        <p>订单编号：{{order.orderId}}</p><br>
+                        <p>订单状态：<font style="color: darkgoldenrod">{{order.orderStatus}}</font></p><br>
+                        <p>总金额：{{order.totalPrice}}</p><br>
+                        <!--
+                        <nz-button-group>
+                            <button nz-button nzType="primary" (click)="showConfirm(order)" disabled>确认付款</button>
+                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order)" disabled>取消</button>
+                        </nz-button-group>
+                        -->
+            
+                    </nz-card>
+        </div>
+
+        <div *ngIf = "order.orderStatus ==='已完成'">
+                <nz-card style="width: 300px;height:280px" nzTitle="订单{{order.orderId}}" [nzExtra]="extraTemplate">
+
+                        <p>订单编号：{{order.orderId}}</p><br>
+                        <p>订单状态：<font style="color: green">{{order.orderStatus}}</font></p><br>
+                        <p>总金额：{{order.totalPrice}}</p><br>
+                        <!--
+                        <nz-button-group>
+                            <button nz-button nzType="primary" (click)="showConfirm(order)" disabled>确认付款</button>
+                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order)" disabled>取消</button>
+                        </nz-button-group>
+                        -->
+            
+                    </nz-card>
+        </div>
+
+        <div *ngIf = "order.orderStatus ==='已取消'">
+                <nz-card style="width: 300px;height:280px" nzTitle="订单{{order.orderId}}" [nzExtra]="extraTemplate">
+
+                        <p>订单编号：{{order.orderId}}</p><br>
+                        <p>订单状态：<font style="color: red">{{order.orderStatus}}</font></p><br>
+                        <p>总金额：{{order.totalPrice}}</p><br>
+                        <!--
+                        <nz-button-group>
+                            <button nz-button nzType="primary" (click)="showConfirm(order)" disabled>确认付款</button>
+                            <button nz-button nzType="danger" (click)="showDeleteConfirm(order)" disabled>取消</button>
+                        </nz-button-group>
+                        -->
+            
+                    </nz-card>
+        </div>
+
+        
+        <ng-template #extraTemplate>
+            {{order.orderTime}}
+        </ng-template>
+
+    </div>
+
+</div>
+
+
