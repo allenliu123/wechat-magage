@@ -34,49 +34,40 @@ export class MenuComponent implements OnInit {
       dishType: '',
     }
 
-   dishes:any = [
-    {
-      dishId: 1,
-      dishName: '牛肉卷',
-      dishPrice: 20,
-      dishType: '荤菜',
-    },
-
-    {
-      dishId: 2,
-      dishName: '牛肉卷',
-      dishPrice: 20,
-      dishType: '荤菜',
-    },
-
-    {
-      dishId: 3,
-      dishName: '牛肉卷',
-      dishPrice: 20,
-      dishType: '荤菜',
-    },
-
-    {
-      dishId: 4,
-      dishName: '牛肉卷',
-      dishPrice: 20,
-      dishType: '荤菜',
-    },
-
-    {
-      dishId: 5,
-      dishName: '牛肉卷',
-      dishPrice: 20,
-      dishType: '荤菜',
-    },
-  ]
+   dishes:any = []
 
   constructor(
       private http: HttpService,
   ) { }
 
   ngOnInit() {
-
+    this.http.get('/classify/get', res => {
+      if(res.msg == 'success'){
+        this.http.get('/dish/get', res1 => {
+          if(res1.msg == 'success'){
+            var classify = res.data
+            var dish = res1.data
+            for(var c of classify){
+              var dishType: any = {}
+              dishType.typeId = classify.classificationId
+              dishType.typeName = classify.classification
+              this.dishTypes.push(dishType)
+              for(var d of dish){
+                if(c.classificationId == d.classificationId){
+                  var obj:any = {}
+                  obj.dishId = d.dishId
+                  obj.dishName = d.dishName
+                  obj.dishPrice = d.price
+                  obj.dishType = c.classification
+                  obj.img = d.img
+                  this.dishes.push(obj)
+                }
+              }
+            }
+          }
+        })
+      }
+    })
   }
 
   showModal(): void {
