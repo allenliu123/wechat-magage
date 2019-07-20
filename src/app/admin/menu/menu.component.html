@@ -33,14 +33,14 @@
         对话框
 -->
 <div>
-                <nz-modal [(nzVisible)]="isVisible" nzTitle="Modal Title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading" >
+                <nz-modal [(nzVisible)]="isVisible" nzTitle="添加菜品" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzOkLoading]="isOkLoading" >
                         <div>
 
                                 
 
                                 <div class="nz-input">
-                                        <p><font class = "textColor">菜品：</font> <input nz-input placeholder="" [(ngModel)]="newDish.dishName"  /></p>
-                                        <p><font class = "textColor">价格：</font> <input nz-input placeholder="" [(ngModel)]="newDish.dishPrice"  /></p>
+                                        <p>菜品<input nz-input placeholder="" [(ngModel)]="newDish.dishName"  /></p>
+                                        <p>价格<input nz-input placeholder="" [(ngModel)]="newDish.dishPrice"  /></p>
                                 </div>
                                         
                                 <div class="nz-img-input">

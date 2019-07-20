@@ -38,13 +38,14 @@ export class CommentComponent implements OnInit {
       nzOnOk:() => {
         var formData = new FormData();
         formData.append("orderId",  id);
-        formData.append("state", "已完成")
+        formData.append("state", "待评价")
         this.http.post('/complete', formData, res => {
           if(res.msg == 'success'){
             this.message.create('success', '确认成功')
             for(var i of this.orders){
+              console.log(i.orderId)
               if(i.orderId == id){
-                i.orderStatus == '已完成'
+                i.orderStatus == '待评价'
                 break
               }
             }

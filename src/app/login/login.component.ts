@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.http.post('/login', params, res => {
           if(res.msg === 'success'){
             this.message.create('success', "登陆成功");
-            this.router.navigateByUrl("admin")
+            this.router.navigateByUrl("admin/home")
           } else if(res.msg === 'fail'){
             this.message.create('error', res.data);
             this.validateForm.reset()
