@@ -6,17 +6,21 @@
         (click)="this.url='/admin/home'">
         <div class="item1" [ngClass]="{'item-active': url=='/admin/home'}">首页</div>
         </a>
-        <a [routerLink]=""><div class="item1">管理</div></a>
         <a
         [routerLink]="['/admin/menu']"
         (click)="this.url='/admin/menu'">
-        <div class="item" [ngClass]="{'item-active': url=='/admin/menu'}">菜单管理</div>
+        <div class="item1" [ngClass]="{'item-active': url=='/admin/menu'}">菜单管理</div>
         </a>
-        <a
+        <!-- <a
+        [routerLink]="['/admin/menu']"
+        (click)="this.url='/admin/menu'">
+        <div class="item" [ngClass]="{'item-active': url=='/admin/menu'}">菜单管理</div>
+        </a> -->
+        <!-- <a
         [routerLink]="['/admin/desk']" 
         (click)="this.url='/admin/desk'">
         <div class="item" [ngClass]="{'item-active': url=='/admin/desk'}">桌位管理</div>
-        </a>
+        </a> -->
         <a
         [routerLink]="['/admin/comment']"
         (click)="this.url='/admin/comment'">

@@ -47,7 +47,7 @@
                 </div>
 </div>
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="qrcode">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="二维码" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="qrcode">
   <div >
       <p>当前桌位：{{selectData.tableName}}</p>
       <p><qr-code [value]="selectDataString" [size]="200"></qr-code></p>

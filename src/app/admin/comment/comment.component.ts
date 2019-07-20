@@ -42,13 +42,9 @@ export class CommentComponent implements OnInit {
         this.http.post('/complete', formData, res => {
           if(res.msg == 'success'){
             this.message.create('success', '确认成功')
-            for(var i of this.orders){
-              console.log(i.orderId)
-              if(i.orderId == id){
-                i.orderStatus == '待评价'
-                break
-              }
-            }
+            this.http.get('/order/all', res => {
+              this.orders = res.data
+            })
           } else {
             this.message.create('error', '确认失败')
           }
