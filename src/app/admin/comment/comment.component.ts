@@ -67,12 +67,9 @@ export class CommentComponent implements OnInit {
         this.http.post('/complete', formData, res => {
           if(res.msg == 'success'){
             this.message.create('success', '取消成功')
-            for(var i of this.orders){
-              if(i.orderId == id){
-                i.orderStatus == '已取消'
-                break
-              }
-            }
+            this.http.get('/order/all', res => {
+              this.orders = res.data
+            })
           } else {
             this.message.create('error', '取消失败')
           }
